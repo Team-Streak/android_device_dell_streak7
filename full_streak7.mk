@@ -4,10 +4,11 @@ $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-PRODUCT_NAME := full_streak7
+PRODUCT_NAME := streak7
 PRODUCT_DEVICE := streak7
-PRODUCT_MODEL := Streak7
-PRODUCT_MANUFACTURER := DELL
+PRODUCT_MODEL := Dell Streak 7
+PRODUCT_MANUFACTURER := Dell Inc.
+PRODUCT_BRAND := dell
 
 PRODUCT_LOCALES += en_US
 
@@ -15,14 +16,15 @@ $(call inherit-product-if-exists, vendor/nvidia/tegra/core/nvidia-tegra-vendor.m
 $(call inherit-product, build/target/product/languages_full.mk)
 
 PRODUCT_COPY_FILES += \
-$(LOCAL_PATH)/libcamera.so:obj/lib/libcamera.so \
-$(LOCAL_PATH)/libaudio.so:obj/lib/libaudio.so \
-$(LOCAL_PATH)/libaudiopolicy.so:obj/lib/libaudiopolicy.so \
-$(LOCAL_PATH)/liba2dp.so:obj/lib/liba2dp.so 
+vendor/dell/streak7/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
+vendor/dell/streak7/proprietary/lib/libaudio.so:obj/lib/libaudio.so \
+vendor/dell/streak7/proprietary/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so \
+vendor/dell/streak7/proprietary/lib/liba2dp.so:obj/lib/liba2dp.so 
 
 PRODUCT_COPY_FILES += \
     device/dell/streak7/init.streak7.rc:root/init.streak7.rc \
     device/dell/streak7/ueventd.streak7.rc:root/ueventd.streak7.rc \
+    device/dell/streak7/ln_named_part:root/sbin/ln_named_part \
     frameworks/base/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -41,21 +43,8 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/base/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml
 
-
-ifneq (,$(filter $(BOARD_INCLUDES_TEGRA_JNI),display))
-PRODUCT_COPY_FILES += \
-    vendor/nvidia/tegra/hal/frameworks/Display/com.nvidia.display.xml:system/etc/permissions/com.nvidia.display.xml
-endif
-
-ifneq (,$(filter $(BOARD_INCLUDES_TEGRA_JNI),cursor))
-PRODUCT_COPY_FILES += \
-    vendor/nvidia/tegra/hal/frameworks/Graphics/com.nvidia.graphics.xml:system/etc/permissions/com.nvidia.graphics.xml
-endif
-
 PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
-  $(LOCAL_PATH)/init.streak7.rc:root/init.streak7.rc \
-  $(LOCAL_PATH)/ueventd.streak7.rc:root/ueventd.streak7.rc \
   $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
   $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
   $(LOCAL_PATH)/atmel-maxtouch.idc:system/usr/idc/mXT224_touchscreen.idc \
@@ -63,46 +52,8 @@ PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
 PRODUCT_COPY_FILES += \
-    vendor/dell/streak7/proprietary/lib/egl/egl.cfg:system/lib/egl/egl.cfg
-
-PRODUCT_COPY_FILES += \
-	vendor/dell/streak7/proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/side.conf:system/usr/share/alsa/pcm/side.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/rear.conf:system/usr/share/alsa/pcm/rear.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/pcm/front.conf:system/usr/share/alsa/pcm/front.conf \
-	vendor/dell/streak7/proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
 	device/dell/streak7/asound.conf:system/etc/asound.conf
 #	device/nvidia/common/bdaddr:system/etc/bluetooth/bdaddr
-
-ifeq ($(wildcard vendor/nvidia/tegra/core-private),vendor/nvidia/tegra/core-private)
-PRODUCT_COPY_FILES += \
-   vendor/nvidia/tegra/3rdparty/bcmbinaries/bcm4329/bluetooth/bcmpatchram.hcd:system/etc/firmware/bcm4329.hcd \
-   vendor/nvidia/tegra/3rdparty/bcmbinaries/bcm4329/wlan/nh930_nvram.txt:system/etc/nvram.txt \
-   vendor/dell/streak7/proprietary/bin/glgps_nvidiaTegra2android:system/bin/glgps_nvidiaTegra2android \
-   vendor/dell/streak7/proprietary/etc/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-   vendor/dell/streak7/proprietary/lib/hw/gps.tegra.so:system/lib/hw/gps.tegra.so \
-   vendor/nvidia/tegra/customers/nvidia-partner/ventana/partition_data/config/nvcamera.conf:system/etc/nvcamera.conf
-else
-PRODUCT_COPY_FILES += \
-  vendor/nvidia/tegra/prebuilt/3rdparty/bcmbinaries/bcm4329/bluetooth/bcmpatchram.hcd:system/etc/firmware/bcm4329.hcd \
-   vendor/nvidia/tegra/prebuilt/3rdparty/bcmbinaries/bcm4329/wlan/nh930_nvram.txt:system/etc/nvram.txt \
-   vendor/dell/streak7/proprietary/bin/glgps_nvidiaTegra2android:system/bin/glgps_nvidiaTegra2android \
-   vendor/dell/streak7/proprietary/etc/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-   vendor/dell/streak7/proprietary/lib/hw/gps.tegra.so:system/lib/hw/gps.tegra.so \
-   vendor/nvidia/tegra/odm/ventana/partition_data/config/nvcamera.conf:system/etc/nvcamera.conf
-endif
 
 PRODUCT_PACKAGES += \
     sensors.ventana \
@@ -126,16 +77,5 @@ include frameworks/base/build/tablet-dalvik-heap.mk
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_CHARACTERISTICS := tablet
-
-# Default NVFlash boot config files.
-ifeq ($(wildcard vendor/nvidia/tegra/core-private),vendor/nvidia/tegra/core-private)
-PRODUCT_COPY_FILES += \
-    vendor/nvidia/tegra/customers/nvidia-partner/ventana/nvflash/ventana_A03_12MHz_EDB8132B1PB6DF_300Mhz_1GB_emmc_THGBM1G6D4EBAI4.bct:flash.bct \
-    vendor/nvidia/tegra/customers/nvidia-partner/ventana/nvflash/android_fastboot_emmc_full.cfg:flash.cfg
-else
-PRODUCT_COPY_FILES += \
-    vendor/nvidia/tegra/odm/ventana/nvflash/ventana_A03_12MHz_EDB8132B1PB6DF_300Mhz_1GB_emmc_THGBM1G6D4EBAI4.bct:flash.bct \
-    vendor/nvidia/tegra/odm/ventana/nvflash/android_fastboot_emmc_full.cfg:flash.cfg
-endif
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay

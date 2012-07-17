@@ -1,13 +1,10 @@
 TARGET_PREBUILT_KERNEL := device/dell/streak7/kernel
 TARGET_BOARD_INFO_FILE := device/dell/streak7/board-info.txt
 BOARD_EGL_CFG := vendor/dell/streak7/proprietary/lib/egl/egl.cfg
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null video=tegrafb usbcore.old_scheme_first=1 tegraboot=sdmmc tegrapart=mmcblk0=system:900:20000:800,cache:20900:80000:800,misc:a0900:400:800,linux:a0e00:1000:800,userdata:a1f00:80000:800,recovery:122000:a00:800,intmmc:122B00:647900:800 boardtype=PR androidboot.hardware=ventana
-
-# inherit from the proprietary version
--include vendor/toshiba/betelgeuse/BoardConfigVendor.mk
+#BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null video=tegrafb usbcore.old_scheme_first=1 tegraboot=sdmmc tegrapart=mmcblk0=system:900:20000:800,cache:20900:80000:800,misc:a0900:400:800,linux:a0e00:1000:800,userdata:a1f00:80000:800,recovery:122000:a00:800,intmmc:122B00:647900:800 boardtype=PR androidboot.hardware=ventana
 
 TARGET_BOARD_PLATFORM := tegra
-TARGET_TEGRA_VERSION := ap20
+TARGET_TEGRA_VERSION := t20
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -25,7 +22,7 @@ BOARD_PREBUILT_LIBAUDIO := true
 BOARD_USES_AUDIO_LEGACY := true
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := ventana
+TARGET_BOOTLOADER_BOARD_NAME := streak7
 
 BOARD_BUILD_BOOTLOADER := false
 
@@ -33,6 +30,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_PAGE_SIZE := 0x00000800
 
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 5242880
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 268435456

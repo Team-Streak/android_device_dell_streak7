@@ -1,3 +1,4 @@
+lib/liba2dp.so
 lib/libasound.so
 lib/libaudio.so
 lib/libaudiopolicy.so
@@ -64,6 +65,8 @@ etc/firmware/nvmm_wavdec.axf
 etc/firmware/nvmm_wmadec.axf
 etc/firmware/nvmm_wmaprodec.axf
 etc/firmware/nvrm_avp.bin
+etc/firmware/bcm4329.hcd
+etc/nvram.txt
 etc/asound.conf 
 usr/share/alsa/alsa.conf 
 usr/share/alsa/cards/aliases.conf 
@@ -94,10 +97,11 @@ lib/hw/gralloc.tegra.so
 lib/hw/hwcomposer.tegra.so
 lib/hw/overlay.tegra.so
 lib/hw/tegra_alsa.streak7.so
+lib/gps.tegra.so
 bin/nv_hciattach
 bin/nvrm_daemon
 bin/nvtest
-bin/glgps_nvidiaTegra2android
+bin/glgps
 bin/dock_utility
 etc/gps.conf
 etc/gpsconfig.xml
