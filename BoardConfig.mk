@@ -59,7 +59,7 @@ BOARD_SKIP_ANDROID_DOC_BUILD := true
 
 # Camera
 #USE_CAMERA_STUB := false
-#BOARD_VENDOR_USE_NV_CAMERA := true
+BOARD_VENDOR_USE_NV_CAMERA := true
 # omxcamera is default
 #TEGRA_CAMERA_TYPE := usb_uvc
 
@@ -124,4 +124,4 @@ COMMON_GLOBAL_CFLAGS += -DBOARD_GL_OES_EGL_IMG_EXTERNAL_HACK
 
 # Use nicer font rendering
 BOARD_USE_SKIA_LCDTEXT := true
-BOARD_INCLUDES_TEGRA_JNI:= graphics,cursor
+#BOARD_INCLUDES_TEGRA_JNI:= graphics,cursor
