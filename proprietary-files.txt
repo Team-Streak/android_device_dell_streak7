@@ -89,9 +89,6 @@ lib/egl/libEGL_tegra.so
 lib/egl/libGLESv1_CM_tegra.so
 lib/egl/libGLESv2_tegra.so
 lib/egl/egl.cfg
-lib/libmpl.so
-lib/libmlplatform.so
-lib/libmllite.so
 lib/gps.tegra.so
 lib/hw/gralloc.tegra.so
 lib/hw/hwcomposer.tegra.so
@@ -102,7 +99,6 @@ bin/nv_hciattach
 bin/nvrm_daemon
 bin/nvtest
 bin/glgps
-bin/dock_utility
 etc/gps.conf
 etc/gpsconfig.xml
 lib/libstagefrighthw.so
