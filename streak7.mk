@@ -15,6 +15,7 @@ PRODUCT_LOCALES += en_US
 $(call inherit-product-if-exists, vendor/nvidia/tegra/core/nvidia-tegra-vendor.mk)
 $(call inherit-product, vendor/dell/streak7/streak7-vendor.mk)
 $(call inherit-product, build/target/product/languages_full.mk)
+$(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 PRODUCT_COPY_FILES += \
 vendor/dell/streak7/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
@@ -50,11 +51,11 @@ PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
   $(LOCAL_PATH)/atmel-maxtouch.idc:system/usr/idc/mXT224_touchscreen.idc \
   $(LOCAL_PATH)/panjit_touch.idc:system/usr/idc/panjit_touch.idc \
-  $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+  $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+  $(LOCAL_PATH)/dhd.ko:system/lib/modules/bcm4329.ko
 
 PRODUCT_COPY_FILES += \
 	device/dell/streak7/asound.conf:system/etc/asound.conf
-#	device/nvidia/common/bdaddr:system/etc/bluetooth/bdaddr
 
 PRODUCT_PACKAGES += \
     sensors.streak7 \

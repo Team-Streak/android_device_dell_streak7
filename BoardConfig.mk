@@ -47,15 +47,12 @@ BOARD_CACHE_FILESYSTEM := ext4
 USE_E2FSPROGS := true
 USE_OPENGL_RENDERER := true
 
-# OTA
-#TARGET_RECOVERY_UPDATER_LIBS += libnvrecoveryupdater
-
 # Skip droiddoc build to save build time
 BOARD_SKIP_ANDROID_DOC_BUILD := true
 
 # Bluetooth
-#BOARD_HAVE_BLUETOOTH := true
-#BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Camera
 #USE_CAMERA_STUB := false
@@ -66,13 +63,13 @@ BOARD_VENDOR_USE_NV_CAMERA := true
 # Connectivity - Wi-Fi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WLAN_DEVICE := bcm4329
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/hw/dhd.ko"
-WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcm4329.bin"
-WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcm4329_apsta.bin"
-WIFI_DRIVER_MODULE_NAME     :=  "dhd"
-WIFI_DRIVER_MODULE_ARG      :=  "iface_name=wlan0 firmware_path=/vendor/firmware/fw_bcm4329.bin nvram_path=/system/etc/wlan/nvram.txt"
+BOARD_WLAN_DEVICE := bcm4329
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
+WIFI_DRIVER_FW_PATH_STA     := "/system/vendor/firmware/fw_bcm4329.bin"
+WIFI_DRIVER_FW_PATH_AP      := "/system/vendor/firmware/fw_bcm4329_apsta.bin"
+WIFI_DRIVER_MODULE_NAME     :=  "bcm4329"
+WIFI_DRIVER_MODULE_ARG      :=  "firmware_path=/system/vendor/firmware/fw_bcm4329.bin nvram_path=/system/etc/wlan/nvram.txt iface_name=wlan0"
 
 #3G
 BOARD_MOBILEDATA_INTERFACE_NAME := "usb0"
