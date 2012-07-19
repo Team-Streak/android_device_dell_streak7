@@ -39,7 +39,7 @@ on fs
 
 on post-fs-data
     mkdir /system/etc/wifi 0770 wifi wifi
-    chmod /system/etc/wifi/wpa_supplicant.conf
+    chmod /system/etc/wifi/wpa_supplicant.conf 0770
     chown wifi wifi /system/etc/wifi/wpa_supplicant.conf
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -221,8 +221,8 @@ service wifid /system/bin/wifid
 on device-added-/sys/block/sda
     mount vfat /dev/block/sda /mnt/usbdrive
 
-on device-removed-/sys/block/sda
-    umount /mnt/usbdrive
+#on device-removed-/sys/block/sda
+#    umount /mnt/usbdrive
 
 #Prepare TF service
 service tf_daemon /system/bin/tf_daemon -storageDir /data/tf -d
