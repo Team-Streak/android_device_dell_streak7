@@ -95,6 +95,10 @@ lib/hw/hwcomposer.tegra.so
 lib/hw/overlay.tegra.so
 lib/hw/tegra_alsa.streak7.so
 lib/gps.tegra.so
+bin/sensors_daemon
+bin/wifid
+bin/lfinit
+bin/sdcard_oem
 bin/nv_hciattach
 bin/nvrm_daemon
 bin/nvtest

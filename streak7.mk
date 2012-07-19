@@ -18,15 +18,6 @@ $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 PRODUCT_COPY_FILES += \
-vendor/dell/streak7/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
-vendor/dell/streak7/proprietary/lib/libaudio.so:obj/lib/libaudio.so \
-vendor/dell/streak7/proprietary/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so \
-vendor/dell/streak7/proprietary/lib/liba2dp.so:obj/lib/liba2dp.so 
-
-PRODUCT_COPY_FILES += \
-    device/dell/streak7/init.streak7.rc:root/init.streak7.rc \
-    device/dell/streak7/ueventd.streak7.rc:root/ueventd.streak7.rc \
-    device/dell/streak7/ln_named_part:root/sbin/ln_named_part \
     frameworks/base/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -46,16 +37,20 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml
 
 PRODUCT_COPY_FILES += \
-  $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
-  $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-  $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
-  $(LOCAL_PATH)/atmel-maxtouch.idc:system/usr/idc/mXT224_touchscreen.idc \
-  $(LOCAL_PATH)/panjit_touch.idc:system/usr/idc/panjit_touch.idc \
-  $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-  $(LOCAL_PATH)/dhd.ko:system/lib/modules/bcm4329.ko
+    $(LOCAL_PATH)/init.streak7.rc:root/init.streak7.rc \
+    $(LOCAL_PATH)/ueventd.streak7.rc:root/ueventd.streak7.rc \
+    $(LOCAL_PATH)/ln_named_part:root/sbin/ln_named_part \
+    $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
+    $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/atmel-maxtouch.idc:system/usr/idc/mXT224_touchscreen.idc \
+    $(LOCAL_PATH)/panjit_touch.idc:system/usr/idc/panjit_touch.idc \
+    $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+	$(LOCAL_PATH)/asound.conf:system/etc/asound.conf
 
 PRODUCT_COPY_FILES += \
-	device/dell/streak7/asound.conf:system/etc/asound.conf
+    $(LOCAL_PATH)/dhd.ko:system/lib/modules/bcm4329.ko \
+    $(LOCAL_PATH)/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
 
 PRODUCT_PACKAGES += \
     sensors.streak7 \
