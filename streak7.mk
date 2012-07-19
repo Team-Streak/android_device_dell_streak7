@@ -41,16 +41,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ueventd.streak7.rc:root/ueventd.streak7.rc \
     $(LOCAL_PATH)/ln_named_part:root/sbin/ln_named_part \
     $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
-    $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/ATA2538_capkey.kl:system/usr/keylayout/ATA2538_capkey.kl \
+	$(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/atmel-maxtouch.idc:system/usr/idc/mXT224_touchscreen.idc \
     $(LOCAL_PATH)/panjit_touch.idc:system/usr/idc/panjit_touch.idc \
     $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
 	$(LOCAL_PATH)/asound.conf:system/etc/asound.conf
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/dhd.ko:system/lib/hw/dhd.ko \
-    $(LOCAL_PATH)/scsi_wait_scan.ko:system/lib/hw/scsi_wait_scan.ko
 
 PRODUCT_PACKAGES += \
     sensors.streak7 \
@@ -74,5 +71,7 @@ include frameworks/base/build/tablet-dalvik-heap.mk
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_CHARACTERISTICS := tablet
+
+TARGET_BOOTANIMATION_NAME := horizontal-1024x600
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay

@@ -1,4 +1,4 @@
-TARGET_PREBUILT_KERNEL := device/dell/streak7/kernel
+#TARGET_PREBUILT_KERNEL := device/dell/streak7/kernel
 TARGET_BOARD_INFO_FILE := device/dell/streak7/board-info.txt
 BOARD_EGL_CFG := vendor/dell/streak7/proprietary/lib/egl/egl.cfg
 #BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null video=tegrafb usbcore.old_scheme_first=1 tegraboot=sdmmc tegrapart=mmcblk0=system:900:20000:800,cache:20900:80000:800,misc:a0900:400:800,linux:a0e00:1000:800,userdata:a1f00:80000:800,recovery:122000:a00:800,intmmc:122B00:647900:800 boardtype=PR androidboot.hardware=ventana
@@ -65,7 +65,7 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
 BOARD_WLAN_DEVICE := bcm4329
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/hw/dhd.ko"
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcm4329.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_NAME     :=  "dhd"
