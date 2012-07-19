@@ -49,8 +49,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/asound.conf:system/etc/asound.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/dhd.ko:system/lib/modules/bcm4329.ko \
-    $(LOCAL_PATH)/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
+    $(LOCAL_PATH)/dhd.ko:system/lib/hw/dhd.ko \
+    $(LOCAL_PATH)/scsi_wait_scan.ko:system/lib/hw/scsi_wait_scan.ko
 
 PRODUCT_PACKAGES += \
     sensors.streak7 \
