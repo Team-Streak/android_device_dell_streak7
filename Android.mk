@@ -12,14 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(my-dir)
+LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),streak7)
-subdir_makefiles := \
-	$(LOCAL_PATH)/liblights/Android.mk \
-	$(LOCAL_PATH)/sensors/Android.mk \
-    $(LOCAL_PATH)/audio/Android.mk \
-	$(LOCAL_PATH)/huaweigeneric-ril/Android.mk
- 
-include $(subdir_makefiles)
-endif
+# if some modules are built directly from this directory (not subdirectories),
+# their rules should be written here.
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
