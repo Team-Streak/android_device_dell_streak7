@@ -37,22 +37,21 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.streak7.rc:root/init.streak7.rc \
-    $(LOCAL_PATH)/init.streak7.usb.rc:root/init.streak7.usb.rc \
-    $(LOCAL_PATH)/ueventd.streak7.rc:root/ueventd.streak7.rc \
+    $(LOCAL_PATH)/prebuilts/root/init.streak7.rc:root/init.streak7.rc \
+    $(LOCAL_PATH)/prebuilts/root/init.streak7.usb.rc:root/init.streak7.usb.rc \
+    $(LOCAL_PATH)/prebuilts/root/ueventd.streak7.rc:root/ueventd.streak7.rc \
     $(LOCAL_PATH)/init.recovery.rc:recovery/root/init.recovery.rc \
-    $(LOCAL_PATH)/ln_named_part:root/sbin/ln_named_part \
-    $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
-    $(LOCAL_PATH)/ATA2538_capkey.kl:system/usr/keylayout/ATA2538_capkey.kl \
-	$(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/atmel-maxtouch.idc:system/usr/idc/mXT224_touchscreen.idc \
-    $(LOCAL_PATH)/panjit_touch.idc:system/usr/idc/panjit_touch.idc \
-    $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-	$(LOCAL_PATH)/asound.conf:system/etc/asound.conf
+    $(LOCAL_PATH)/prebuilts/root/sbin/ln_named_part:root/sbin/ln_named_part \
+    $(LOCAL_PATH)/prebuilts/etc/vold.fstab:system/etc/vold.fstab \
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/ATA2538_capkey.kl:system/usr/keylayout/ATA2538_capkey.kl \
+	$(LOCAL_PATH)/prebuilts/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/prebuilts/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/prebuilts/usr/idc/mXT224_touchscreen.idc:system/usr/idc/mXT224_touchscreen.idc \
+    $(LOCAL_PATH)/prebuilts/usr/idc/panjit_touch.idc:system/usr/idc/panjit_touch.idc \
+    $(LOCAL_PATH)/prebuilts/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+	$(LOCAL_PATH)/prebuilts/etc/asound.conf:system/etc/asound.conf
 
 PRODUCT_PACKAGES += \
-    sensors.streak7 \
     lights.streak7 \
     tegra_alsa.tegra \
     audio.primary.tegra \
@@ -76,6 +75,6 @@ PRODUCT_CHARACTERISTICS := tablet
 
 #TARGET_BOOTANIMATION_NAME := horizontal-1024x600
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/horizontal-800x480.zip:system/media/bootanimation.zip
+	$(LOCAL_PATH)/prebuilts/media/horizontal-800x480.zip:system/media/bootanimation.zip
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
