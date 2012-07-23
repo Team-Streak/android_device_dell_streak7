@@ -41,6 +41,10 @@ on fs
     mount ext3 /dev/UDA /data wait noatime nosuid nodev
     mount ext3 /dev/CAC /cache wait noatime nosuid nodev
 
+    # Internal SD hack
+    # This is just a workaround until I can get the internal SD storage to mount using fstab.
+    mount vfat /dev/block/mmcblk3p14 /mnt/sdcard
+
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -176,9 +180,9 @@ on property:init.svc.wpa_supplicant=stopped
 # WH Lee, Use external SD card
 # service sdcard /system/bin/sdcard /data/media 1023 1023
 #    class late_start
-service sdcard_oem /system/bin/sdcard_oem
-    class late_start
-    oneshot
+#service sdcard_oem /system/bin/sdcard_oem
+#    class late_start
+#    oneshot
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
 service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugreport

@@ -93,6 +93,7 @@ lib/gps.tegra.so
 lib/hw/gralloc.tegra.so
 lib/hw/hwcomposer.tegra.so
 lib/hw/overlay.tegra.so
+lib/hw/sensors.default.so
 lib/hw/tegra_alsa.streak7.so
 lib/gps.tegra.so
 bin/sensors_daemon

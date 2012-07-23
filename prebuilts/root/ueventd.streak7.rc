@@ -24,5 +24,5 @@
 /dev/lsensor_taos		0666	system	system
 /dev/dvb*				0666	system	system
 /dev/ttyUSB*			0660	radio 	system
-/dev/ov5642             0666    system  camera
-/dev/ov9665             0666    system  camera
+/dev/ov5642             0666    media  	camera
+/dev/ov9665             0666    media  	camera
