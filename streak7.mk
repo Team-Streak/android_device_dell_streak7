@@ -41,7 +41,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/root/init.streak7.rc:root/init.streak7.rc \
     $(LOCAL_PATH)/prebuilts/root/init.streak7.usb.rc:root/init.streak7.usb.rc \
     $(LOCAL_PATH)/prebuilts/root/ueventd.streak7.rc:root/ueventd.streak7.rc \
-    $(LOCAL_PATH)/init.recovery.rc:recovery/root/init.recovery.rc \
     $(LOCAL_PATH)/prebuilts/root/sbin/ln_named_part:root/sbin/ln_named_part \
     $(LOCAL_PATH)/prebuilts/etc/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/ATA2538_capkey.kl:system/usr/keylayout/ATA2538_capkey.kl \
