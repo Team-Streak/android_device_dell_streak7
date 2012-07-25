@@ -39,7 +39,7 @@ static int write_int(char const *path, int value)
 		return amt == -1 ? -errno : 0;
 	} else {
 		if (already_warned == -1) {
-			LOGE("write_int failed to open %s\n", path);
+			ALOGE("write_int failed to open %s\n", path);
 			already_warned = 1;
 		}
 		return -errno;
@@ -114,7 +114,7 @@ static struct hw_module_methods_t lights_methods =
 /*
  * The backlight Module
  */
-const struct hw_module_t HAL_MODULE_INFO_SYM =
+struct hw_module_t HAL_MODULE_INFO_SYM =
 {
 	.tag = HARDWARE_MODULE_TAG,
 	.version_major = 1,
