@@ -1,18 +1,15 @@
 import init.streak7.usb.rc
 
 on early-init
-	mount debugfs debugfs /sys/kernel/debug
+    mount debugfs debugfs /sys/kernel/debug
 
     export INTERNAL_STORAGE /mnt/sdcard
     mkdir /mnt/sdcard 0000 system system
     # for backwards compatibility
     symlink /mnt/sdcard /sdcard
-
     mkdir /mnt/sdcard2 0000 system system
-
-# WH Lee
     symlink /mnt/sdcard2 /sdcard2
-
+    
 # WH Lee
     export EXTERNAL_STORAGE /mnt/sdcard2
 
@@ -35,14 +32,14 @@ on fs
     chown root system /dev/MSC
     chmod 0660 /dev/MSC
 
-    mount ext4 /dev/APP /system wait ro
+    mount ext4 /dev/APP /system wait ro noatime nodiratime
     exec /system/bin/do_fsck
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
-    mount ext3 /dev/UDA /data wait noatime nosuid nodev
-    mount ext3 /dev/CAC /cache wait noatime nosuid nodev
+    mount ext4 /dev/UDA /data wait noatime nosuid nodev
+    mount ext4 /dev/CAC /cache wait noatime nosuid nodev
 
-    # Internal SD hack
-    # This is just a workaround until I can get the internal SD storage to mount using fstab.
+# Internal SD hack
+# This is just a workaround until I can get the internal SD storage to mount using fstab.
     mount vfat /dev/block/mmcblk3p14 /mnt/sdcard
 
 on post-fs-data
@@ -156,13 +153,12 @@ service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
     disabled
     oneshot
 
-service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+service dhcpcd_eth0 /system/bin/dhcpcd -ABKL 
     class main
     disabled
     oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
-	class main
     disabled
     oneshot
 
