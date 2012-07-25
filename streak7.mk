@@ -22,11 +22,11 @@ vendor/dell/streak7/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
 vendor/dell/streak7/proprietary/lib/liba2dp.so:obj/lib/liba2dp.so 
 
 PRODUCT_COPY_FILES += \
-    device/dell/streak7/init.streak7.rc:root/init.streak7.rc \
-    device/dell/streak7/init.recovery.rc:recovery/root/init.recovery.rc \
-    device/dell/streak7/init.rc:root/init.rc \
-    device/dell/streak7/init.streak7.usb.rc:root/init.streak7.usb.rc \
-    device/dell/streak7/ueventd.streak7.rc:root/ueventd.streak7.rc \
+    device/dell/streak7/prebuilts/root/init.streak7.rc:root/init.streak7.rc \
+    device/dell/streak7/prebuilts/root/init.recovery.rc:recovery/root/init.recovery.rc \
+    device/dell/streak7/prebuilts/root/init.rc:root/init.rc \
+    device/dell/streak7/prebiults/root/init.streak7.usb.rc:root/init.streak7.usb.rc \
+    device/dell/streak7/prebuilts/root/ueventd.streak7.rc:root/ueventd.streak7.rc \
     device/dell/streak7/ln_named_part:root/sbin/ln_named_part \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
