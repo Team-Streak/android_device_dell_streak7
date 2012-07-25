@@ -19,5 +19,20 @@
 #
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
-
+export USE_CCACHE=1
 add_lunch_combo streak7-userdebug
+echo ""
+echo "Patching Dell Workspace..."
+echo ""
+for p in $(find device/dell/streak7/patches/ -name "*.diff")
+do
+echo -n "Apply patch "$(basename $p | awk -F"." '{print $1}')
+patch -p1 < $p > /dev/null 2>&1
+if [ $? == 0 ]; then
+echo " [DONE]"
+else
+echo " [FAIL]"
+fi
+echo ""
+done
+echo ""
