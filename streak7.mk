@@ -74,8 +74,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_CHARACTERISTICS := tablet
 
-#TARGET_BOOTANIMATION_NAME := horizontal-1024x600
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilts/media/horizontal-800x480.zip:system/media/bootanimation.zip
+TARGET_BOOTANIMATION_NAME := horizontal-1024x600
+#PRODUCT_COPY_FILES += \
+#	$(LOCAL_PATH)/prebuilts/media/horizontal-800x480.zip:system/media/bootanimation.zip
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
