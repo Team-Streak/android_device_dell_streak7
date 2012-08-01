@@ -19,9 +19,6 @@ on early-init
 
 on init
 
-chmod 666 /dev/tegra_dc_0
-chmod 666 /dev/tegra_dc_1
-
 sysclktz 0
 
 loglevel 3
@@ -180,8 +177,8 @@ on post-fs-data
     mkdir /data/misc/vpn 0770 system vpn
     mkdir /data/misc/systemkeys 0700 system system
     # give system access to wpa_supplicant.conf for backup and restore
-    mkdir /data/misc/wifi 0770 wifi wifi
-    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    mkdir /system/etc/wifi 0770 wifi wifi
+    chmod 0660 /system/etc/wifi/wpa_supplicant.conf
     mkdir /data/local 0751 root root
 
     # For security reasons, /data/local/tmp should always be empty.

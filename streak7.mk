@@ -17,22 +17,21 @@ $(call inherit-product, build/target/product/languages_full.mk)
 
 PRODUCT_COPY_FILES += \
 vendor/dell/streak7/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
-#vendor/dell/streak7/proprietary/lib/libaudio.so:obj/lib/libaudio.so \
-#vendor/dell/streak7/proprietary/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so \
+vendor/dell/streak7/proprietary/lib/libaudio.so:obj/lib/libaudio.so \
+vendor/dell/streak7/proprietary/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so \
 vendor/dell/streak7/proprietary/lib/liba2dp.so:obj/lib/liba2dp.so 
 
 PRODUCT_COPY_FILES += \
-    device/dell/streak7/prebuilts/root/init.streak7.rc:root/init.streak7.rc \
-    device/dell/streak7/prebuilts/root/init.recovery.rc:recovery/root/init.recovery.rc \
-    device/dell/streak7/prebuilts/root/init.rc:root/init.rc \
-    device/dell/streak7/prebiults/root/init.streak7.usb.rc:root/init.streak7.usb.rc \
-    device/dell/streak7/prebuilts/root/ueventd.streak7.rc:root/ueventd.streak7.rc \
+    device/dell/streak7/nvram.txt:system/etc/wifi/nvram.txt \
+    device/dell/streak7/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
+    device/dell/streak7/init.streak7.rc:root/init.streak7.rc \
+    device/dell/streak7/init.recovery.rc:recovery/root/init.recovery.rc \
+    device/dell/streak7/init.rc:root/init.rc \
+    device/dell/streak7/init.streak7.usb.rc:root/init.streak7.usb.rc \
+    device/dell/streak7/ueventd.streak7.rc:root/ueventd.streak7.rc \
     device/dell/streak7/ln_named_part:root/sbin/ln_named_part \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
@@ -42,10 +41,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml
-
+        
 PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
   $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
@@ -60,7 +56,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.tegra \
     com.android.future.usb.accessory \
-    Camera \
     tegra_alsa.tegra \
     audio.primary.tegra \
     audio.a2dp.default \
@@ -68,8 +63,6 @@ PRODUCT_PACKAGES += \
     setup_fs \
     make_ext4fs \
     drmserver \
-    LiveWallpapers \
-    LiveWallpapersPicker \
     Gallery2 \
     librs_jni \
     libdrmframework_jni
@@ -85,3 +78,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_CHARACTERISTICS := tablet
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
+
+#Attempting to get wifi to work
+WIFI_BAND := 802_11_ABG
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcm4329/Android.mk)
