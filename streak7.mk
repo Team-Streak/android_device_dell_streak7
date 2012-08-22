@@ -20,6 +20,7 @@ vendor/dell/streak7/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
 vendor/dell/streak7/proprietary/lib/libaudio.so:obj/lib/libaudio.so \
 vendor/dell/streak7/proprietary/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so \
 vendor/dell/streak7/proprietary/lib/liba2dp.so:obj/lib/liba2dp.so 
+hardware/broadcom/wlan/bcm4329/firmware/fw_bcm4329_abg.bin:system/vendor/firmware/fw_bcm4329_abg.bin
 
 PRODUCT_COPY_FILES += \
     device/dell/streak7/nvram.txt:system/etc/wifi/nvram.txt \
