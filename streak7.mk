@@ -80,5 +80,4 @@ PRODUCT_CHARACTERISTICS := tablet
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 #Attempting to get wifi to work
-WIFI_BAND := 802_11_ABG
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcm4329/Android.mk)
